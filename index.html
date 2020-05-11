@@ -1,0 +1,28 @@
+<html ng-app="searchStation">
+    <head>
+        <title>高雄市第3屆市長罷免案投開票所設置地點一覽表</title>
+        <link rel="stylesheet" href="spectre.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-controller="StationList">
+        <label>搜尋: <input ng-model="searchText"></label>
+        <table id="searchTextResults" class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th ng-repeat="header in stationData.header">{{header}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="station in stationData.data | filter:searchText">
+                    <td>{{station[0]}}</td>
+                    <td>{{station[1]}}</td>
+                    <td>{{station[2]}}</td>
+                    <td>{{station[3]}}</td>
+                    <td>{{station[4]}}</td>
+                    <td>{{station[5]}}</td>
+                  </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
