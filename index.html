@@ -9,37 +9,40 @@
     <script src="app.js"></script>
 </head>
 
-<body ng-controller="StationList">
-    <div class="container is-fluid">
-        <nav class="level">
+<body ng-controller="StationList" class="has-navbar-fixed-top" style="margin:5px;">
+    <div class="container">
+        <nav class="level navbar is-fixed-top">
             <div class="level-item">
                 <input class="input is-rounded" type="text" ng-model="searchText" placeholder="搜尋">
             </div>
         </nav>
     </div>
-    <div ng-repeat="place in stationData.polling_place | filter:searchText">
-        <div class="box">
-            <div class="content">
-                <p>
-                    <strong>{{place[1]}}</strong><small>{{place[0]}}</small>
-                    <br>
-                    <small>{{place[3]}}</small><small>{{place[4]}}</small>
-                </p>
-            </div>
-            <nav class="level is-mobile">
-                <div class="level-item">
-                    <a class="level-item" aria-label="google map">
-                        <span class="icon is-small">
-                            <i class="mdi mdi-map-marker" aria-hidden="true"></i>
-                        </span>
-                    </a>
-                    <a class="level-item" aria-label="share">
-                        <span class="icon is-small">
-                            <i class="mdi mdi-share-variant" aria-hidden="true"></i>
-                        </span>
-                    </a>
+    <div class="container">
+        <div ng-repeat="place in stationData.polling_place | filter:searchText">
+            <div class="box" style="margin: 5px 0px 5px 0px;">
+                <div class="level content">
+                    <p>
+                        <strong>{{place[1]}}</strong>
+                        <br>
+                        <small>{{place[0]}}</small>
+                        <br>
+                        <small>{{place[3]}}</small><small>{{place[4]}}</small>
+                    </p>
                 </div>
-            </nav>
+                <nav class="level is-mobile">
+                    <div class="level-item">
+                        <a class="level-item" aria-label="google map">
+                            <span class="icon is-small">
+                                <i class="mdi mdi-map-marker" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                        <a class="level-item" aria-label="share">
+                            <span class="icon is-small">
+                                <i class="mdi mdi-share-variant" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </div>
+            </div>
         </div>
     </div>
 </body>
