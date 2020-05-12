@@ -1,31 +1,47 @@
 <html ng-app="searchStation">
-    <head>
-        <title>高雄市第3屆市長罷免案投開票所設置地點一覽表</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="spectre.min.css">
-        <script src="angular.min.js"></script>
-        <script src="app.js"></script>
-    </head>
-    <body ng-controller="StationList">
-        <div class="form-group">
-            <input class="form-input" type="text" ng-model="searchText" placeholder="搜尋">
+
+<head>
+    <title>高雄市第3屆市長罷免案投開票所設置地點一覽表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bulma.min.css">
+    <link rel="stylesheet" href="materialdesignicons.min.css">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="StationList">
+    <div class="container is-fluid">
+        <nav class="level">
+            <div class="level-item">
+                <input class="input is-rounded" type="text" ng-model="searchText" placeholder="搜尋">
+            </div>
+        </nav>
+    </div>
+    <div ng-repeat="place in stationData.polling_place | filter:searchText">
+        <div class="box">
+            <div class="content">
+                <p>
+                    <strong>{{place[1]}}</strong><small>{{place[0]}}</small>
+                    <br>
+                    <small>{{place[3]}}</small><small>{{place[4]}}</small>
+                </p>
+            </div>
+            <nav class="level is-mobile">
+                <div class="level-item">
+                    <a class="level-item" aria-label="google map">
+                        <span class="icon is-small">
+                            <i class="mdi mdi-map-marker" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                    <a class="level-item" aria-label="share">
+                        <span class="icon is-small">
+                            <i class="mdi mdi-share-variant" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </div>
+            </nav>
         </div>
-        <table id="searchTextResults" class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th ng-repeat="header in stationData.header">{{header}}</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="place in stationData.polling_place | filter:searchText">
-                    <td>{{place[0]}}</td>
-                    <td>{{place[1]}}</td>
-                    <td>{{place[2]}}</td>
-                    <td>{{place[3]}}</td>
-                    <td>{{place[4]}}</td>
-                    <td>{{place[5]}}</td>
-                  </tr>
-            </tbody>
-        </table>
-    </body>
+    </div>
+</body>
+
 </html>
