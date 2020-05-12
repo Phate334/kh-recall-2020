@@ -16,13 +16,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="station in stationData.data | filter:searchText">
-                    <td>{{station[0]}}</td>
-                    <td>{{station[1]}}</td>
-                    <td>{{station[2]}}</td>
-                    <td>{{station[3]}}</td>
-                    <td>{{station[4]}}</td>
-                    <td>{{station[5]}}</td>
+                <tr ng-repeat="place in stationData.polling_place | filter:searchText">
+                    <td>{{place[0]}}</td>
+                    <td>{{place[1]}}</td>
+                    <td>{{place[2]}}</td>
+                    <td>{{place[3]}}</td>
+                    <td>{{place[4]}}</td>
+                    <td>{{place[5]}}</td>
                   </tr>
             </tbody>
         </table>
